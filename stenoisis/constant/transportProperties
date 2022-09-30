@@ -1,0 +1,42 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  9
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      transportProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+phases (blood water);
+
+blood
+{
+    transportModel  BirdCarreau;
+    BirdCarreauCoeffs
+    {
+    		nu0         [0 2 -1 0 0 0 0]  4.786e-05;
+    		nuInf       [0 2 -1 0 0 0 0]  2.95e-06;
+    		k           [0 0 1 0 0 0 0]   3.313;
+    		n           [0 0 0 0 0 0 0]   0.3568;
+    }
+    rho         1170;
+}
+
+water
+{
+    transportModel  Newtonian;
+    nu              1e-06;
+    rho             1000;
+}
+
+sigma           0.07;
+
+
+// ************************************************************************* //
